@@ -9,7 +9,7 @@ SELECT
     company_dim.name AS company,
     job_postings_fact.salary_year_avg,
     job_postings_fact.job_location,
-    job_postings_fact.job_posted_date
+    job_postings_fact.job_posted_date::DATE
 FROM job_postings_fact
 LEFT JOIN company_dim ON
     company_dim.company_id = job_postings_fact.company_id

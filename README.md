@@ -9,12 +9,12 @@ In this project, I used **PostGreSQL** as my database management system. It is a
 I also used **VS Code** to write queries and push to and pull to this repository.
 ## Dataset
 The dataset consists of four tables:
-- **job_postings_fact** - Contains job posting information of data jobs from 2023
+- **job_postings_fact** - Contains job posting information of data jobs from 2023 (most recent dataset available)
 - **company_dim** - Contains company information related to the job postings
 - **skills_dim** - Contains all skill names extracted from job postings
 - **skills_job_dim** - Contains all skill IDs associated with each job ID (for joining purposes)
 
-The dataset comes from [Luke Barousse's SQL course](https://youtu.be/7mz73uXD9DA?si=4uMdfrLBoPFkLeTb). 
+The dataset comes from [Luke Barousse's SQL course](https://youtu.be/7mz73uXD9DA?si=4uMdfrLBoPFkLeTb).
 # What questions are we answering?
 ### Query 1 - What are the top-paying data analyst roles?
 ```
