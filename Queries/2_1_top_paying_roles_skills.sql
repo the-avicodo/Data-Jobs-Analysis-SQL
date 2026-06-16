@@ -1,19 +1,23 @@
 /*
-What are the skills required for these top-paying roles?
+What are the skills required for each top-paying role?
+- Role: Data Analyst
+- Location: New York, NY or Remote(Anywhere)
 */
+
 WITH top_jobs AS (
     SELECT 
         job_postings_fact.job_id,
         job_postings_fact.job_title,
         job_postings_fact.salary_year_avg
-    FROM 
-        job_postings_fact
-    WHERE 
-        job_postings_fact.job_title_short = 'Data Analyst' AND 
+    FROM job_postings_fact
+    LEFT JOIN company_dim ON
+        company_dim.company_id = job_postings_fact.company_id
+    WHERE job_postings_fact.job_title_short = 'Data Analyst' AND
+        job_postings_fact.job_location IN ('New York, NY', 'Anywhere') AND
         job_postings_fact.salary_year_avg IS NOT NULL
-    ORDER BY 
+    ORDER BY
         job_postings_fact.salary_year_avg DESC
-    LIMIT 10
+    LIMIT 20 -- Top 20 roles
 )
 
 SELECT 
