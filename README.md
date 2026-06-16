@@ -6,7 +6,7 @@
 ## Software Used
 In this project, I used **PostGreSQL** as my database management system. It is a free, open source software that I found supports SQL queries very well.
 
-I also used **VS Code** to write queries and push to and pull to this repository.
+I also used **VS Code** to write queries and push to and pull from this repository.
 ## Dataset
 The dataset consists of four tables:
 - **job_postings_fact** - Contains job posting information of data jobs from 2023
@@ -16,6 +16,11 @@ The dataset consists of four tables:
 
 The dataset comes from [Luke Barousse's SQL course](https://youtu.be/7mz73uXD9DA?si=4uMdfrLBoPFkLeTb). 
 # What questions are we answering?
+- What are the top-paying data analyst roles?
+- What are the skills required for these top-paying roles?
+- What are the most in-demand skills for data analysts?
+- What are the highest-paying skills to learn? (top skills based on average salary)
+- What are the most optimal skills to learn? (highest DEMAND and highest PAYING)
 ### Query 1 - What are the top-paying data analyst roles?
 ```
 /*
@@ -29,7 +34,7 @@ SELECT
     company_dim.name AS company,
     job_postings_fact.salary_year_avg,
     job_postings_fact.job_location,
-    job_postings_fact.job_posted_date
+    job_postings_fact.job_posted_date::DATE
 FROM job_postings_fact
 LEFT JOIN company_dim ON
     company_dim.company_id = job_postings_fact.company_id
@@ -40,6 +45,9 @@ ORDER BY
     job_postings_fact.salary_year_avg DESC
 LIMIT 20 -- Top 20 roles
 ```
+Results:
+<img width="1087" height="571" alt="image" src="https://github.com/user-attachments/assets/8b7eedd9-5454-4b48-b47d-1795d5d2724d" />
+
 ### Query 2 - What are the skills required for these top-paying roles?
 **Part 1 - Skills required for each top-paying role**
 ```
@@ -75,6 +83,9 @@ INNER JOIN skills_job_dim ON
 INNER JOIN skills_dim ON
     skills_dim.skill_id = skills_job_dim.skill_id
 ```
+Results:
+<img width="612" height="637" alt="image" src="https://github.com/user-attachments/assets/05355c12-172b-4846-9011-d53afcfea8de" />
+
 
 
 **Part 2 - Number of top-paying roles that require each skill**
@@ -115,6 +126,8 @@ GROUP BY
 ORDER BY
     count DESC
 ```
+Results:
+<img width="333" height="318" alt="image" src="https://github.com/user-attachments/assets/26e175f5-1500-494b-b38c-6ff5e8b90f2c" />
 
 
 ### Query 3 - What are the most in-demand skills for data analysts?
@@ -142,6 +155,9 @@ ORDER BY
     demand_count DESC
 LIMIT 10 -- Top 10 skills by demand
 ```
+Results:
+<img width="334" height="322" alt="image" src="https://github.com/user-attachments/assets/0d5a3627-bf97-4138-9693-54f231ffcab3" />
+
 
 ### Query 4 - What are the highest-paying skills to learn? (top skills based on average salary)
 ```
@@ -170,6 +186,9 @@ ORDER BY
     avg_salary DESC
 LIMIT 10 -- Top 10 skills by average salary
 ```
+Results:
+<img width="327" height="318" alt="image" src="https://github.com/user-attachments/assets/3e09c336-2bab-4ad6-a193-8ba050e7706d" />
+
 
 ### Query 5 - What are the most optimal skills to learn? (highest DEMAND and highest PAYING)
 ```
@@ -182,7 +201,6 @@ What are the most optimal skills to learn?
 
 
 SELECT 
-    skills_dim.skill_id,
     skills_dim.skills,
     ROUND(AVG(salary_year_avg),0) AS avg_salary,
     COUNT(skills_dim.skill_id) AS demand_count
@@ -204,4 +222,7 @@ ORDER BY
     avg_salary DESC,
     demand_count DESC
 ```
+Results:
+<img width="494" height="472" alt="image" src="https://github.com/user-attachments/assets/43c498f6-f60e-4653-93c2-dbbf992aeae9" />
+
 
