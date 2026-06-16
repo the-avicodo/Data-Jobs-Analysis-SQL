@@ -32,7 +32,7 @@ WHERE
     job_postings_fact.job_title_short = 'Data Analyst' AND
     job_postings_fact.job_location IN ('New York, NY', 'Anywhere')
 ```
-
+[Link to Query Files](Queries)
 ### Query 1 - What are the top-paying data analyst roles?
 ```
 SELECT 
