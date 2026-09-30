@@ -1,8 +1,9 @@
 # SQL - Data Jobs Analysis
 ## Purpose of Project
-- To gain more experience with **SQL**
-- Provides insights about what **skills** are needed to work in data science and **average salary** information for the data science field
-- **Helpful for job seekers and businesses** curious about what other companies are paying for similar roles
+- Provide insights about what **skills** are in demand for data science roles and how much companies are paying on average.
+- Gain more experience using **SQL**
+
+These insights are useful for **job seekers** interested in data science and **companies** curious about what other companies are paying for similar roles.
 ## Software Used
 In this project, I used **PostGreSQL** as my database management system. It is a free, open source software that I found supports SQL queries very well.
 
@@ -130,7 +131,7 @@ Results:
 
 
 ### Query 3 - What are the most in-demand skills for data analysts?
-Results show that SQL, Excel, and Python were the most in-demand skills for data analyst positions in 2023 that were remote or in New York, NY. Tableau and Power BI were 4th and 5th.
+
 ```
 SELECT
     skills_dim.skills AS skill_name,
@@ -153,9 +154,8 @@ Results:
 
 <img width="334" height="322" alt="image" src="https://github.com/user-attachments/assets/0d5a3627-bf97-4138-9693-54f231ffcab3" />
 
-
+SQL, Excel, and Python were the most in-demand skills for data analyst positions in 2023 that were either remote or in New York, NY, with Tableau and Power BI being 4th and 5th.
 ### Query 4 - What are the highest-paying skills to learn? (top skills based on average salary)
-Results show that Bitbucket, Neo4j, and Cassandra were the highest-paying skills. However, this query doesn't consider how many jobs require these skills.
 ```
 SELECT 
     skills AS skill,
@@ -179,11 +179,11 @@ Results:
 
 <img width="327" height="318" alt="image" src="https://github.com/user-attachments/assets/3e09c336-2bab-4ad6-a193-8ba050e7706d" />
 
-
+Bitbucket, Neo4j, and Cassandra were the highest-paying skills. Disclaimer: This query does not consider **how many jobs** require these skills.
 ### Query 5 - What are the most optimal skills to learn? (highest DEMAND and highest PAYING)
-I chose to filter the results to skills with a **demand count of at least 50** to avoid including skills that are less likely to be required in data analyst job postings. This results set combines queries 3 and 4 by weighing **BOTH** **skill demand** and **average salary**.
+I chose to only analyze skills with a **demand count of 50 or more** to avoid including skills that job postings often do not require. This results set **combines** queries 3 and 4 by weighing **BOTH** **skill demand** and **average salary**.
 
-Results show that cloud-related skills like Snowflake, AWS, and Go had the highest average salaries, with Python as the 4th-highest. Python's demand count was over twice the demand count of all top 3 optimal skills combined.
+Results show that cloud-related skills like Snowflake, AWS, and Go had the highest average salaries, with Python as the 4th-highest. However, Python's demand count was over 2x the demand count of the top 3 optimal skills combined.
 
 Important to note that the top 5 highest-paying skills from query 4 are not among the optimal skills because their demand counts were lower than 50.
 ```
@@ -221,19 +221,19 @@ Most in-demand skills:
 - SQL
 - Python
 
-Highest paying skills:
+Highest paying skills (not considering demand count):
 - Bitbucket
 - Neo4j
 - Cassandra
 
-Most optimal skills to learn (Highest paying skills with demand count of at 50):
+Most optimal skills to learn (highest-paying skills with a demand count of 50 or more):
 - Snowflake (demand: 50+)
 - AWS (demand: 50+)
 - Go (demand: 50+)
 - Python (demand: **300+**)
 
-Assuming that the skills required today for data analyst positions are similar to 2023, if your main goal is to land your first data analyst job, then learning the most in-demand skills first increases your chances. If your goal is to increase your salary in the data analysis field, then learning an optimal skill like Snowflake, Go, AWS, or Python would most likely be your best option.
+Based on the data and the assumption that the skills required today for data analyst positions are similar to those in 2023, learning Excel, SQL, and Python increases your chances of landing a role. If your goal is to increase your salary in the data analysis field, then learning an optimal skill like Snowflake, Go, AWS, or Python would be your best option.
 
-I'd like to perform this analysis with data from 2025 to see how skills and average salaries of data analyst positions have changed since 2023.
+I'd like to perform this analysis with more recent data to see how skills and average salaries of data analyst positions have changed since 2023.
 
-Thank you for reading.
+Hope this was helpful. Feel free to share any feedback. Thank you!
