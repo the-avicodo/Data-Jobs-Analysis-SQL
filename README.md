@@ -1,13 +1,10 @@
 # SQL - Data Jobs Analysis
 ## Purpose of Project
-- Provide insights about what **skills** are in demand for data science roles and how much companies are paying on average.
-- Gain more experience using **SQL**
+The insights gathered from this project are useful for **job seekers** and **companies with open data science positions** curious about how much other companies are offering for data science roles.
 
-These insights are useful for **job seekers** interested in data science and **companies** curious about what other companies are paying for similar roles.
+_Note: This data is from 2023. This project shows the methodology I would use when working with more up-to-date info._
 ## Software Used
-In this project, I used **PostGreSQL** as my database management system. It is a free, open source software that I found supports SQL queries very well.
-
-I also used **VS Code** to write queries and push to and pull from this repository.
+In this project, I used ** PostgreSQL ** as my database management system and **VS Code** as my code editor.
 ## Dataset
 The dataset consists of four tables:
 - **job_postings_fact** - Contains job posting information of data jobs from 2023 (most recent dataset available)
